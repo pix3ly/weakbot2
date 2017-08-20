@@ -6,6 +6,10 @@ const client = new irc.Client(config.client.server, config.client.user, {
     channels: config.client.channels
 })
 
+client.addListener('registered', (msg) => {
+    client.say('nickserv', 'IDENTIFY ' + config.client.password)
+})
+
 client.addListener('message', (from, to, msg) => {
     const startingCharacter = msg.substr(0, 1)
 

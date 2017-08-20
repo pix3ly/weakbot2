@@ -2,6 +2,7 @@ module.exports = {
     client: {
         server: 'irc.freenode.org',
         user: 'weakbot2',
+        password: '',
         channels: ['#something']
     },
     commands: {
