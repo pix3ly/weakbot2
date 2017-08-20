@@ -4,7 +4,7 @@ module.exports = {
         user: 'weakbot2',
         channels: ['#something']
     },
-    commands: [
+    commands: {
         ping: require('./commands/ping')
-    ]
+    }
 }
