@@ -1,6 +1,6 @@
 const axios = require('axios')
 
-module.exports = (config, request, respond) =>
+module.exports = (config, request, respond) => {
     const query = request.arguments.join(' ')
 
     axios.get('https://api.openweathermap.org/data/2.5/weather?q=' + query + '&units=metric&appid=' + config.weather.apiKey).then((response) => {
