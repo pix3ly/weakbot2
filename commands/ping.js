@@ -1,3 +1,3 @@
-module.exports = (config, from, to, msg, respond) => {
-    respond(from + ': pong')
+module.exports = (config, request, respond) => {
+    respond(request.from + ': pong')
 }
