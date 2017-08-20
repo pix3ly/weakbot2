@@ -5,6 +5,10 @@ module.exports = {
         channels: ['#something']
     },
     commands: {
-        ping: require('./commands/ping')
+        ping: require('./commands/ping'),
+        weather: require('./commands/weather')
+    },
+    weather: {
+        apiKey: ''
     }
 }
