@@ -1,10 +1,24 @@
 const config = require('./config')
 
+const Sequelize = require('sequelize')
 const irc = require('irc')
+
+const sequelize = new Sequelize(config.database.name, config.database.user, config.database.password, {
+    dialect: 'mysql',
+    define: {
+        timestamps: false
+    }
+})
 
 const client = new irc.Client(config.client.server, config.client.user, {
     channels: config.client.channels
 })
+
+let models = []
+
+models['insult'] = require('./models/insult')(sequelize)
+
+sequelize.sync()
 
 client.addListener('registered', (msg) => {
     client.say('nickserv', 'IDENTIFY ' + config.client.password)
@@ -25,7 +39,7 @@ client.addListener('message', (from, to, msg) => {
                 from, to, arguments: parts
             }
 
-            config.commands[command](config, request, (response) => {
+            config.commands[command](config, models, request, (response) => {
                 client.say(to, response)
             })
         }

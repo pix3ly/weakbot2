@@ -1,3 +1,3 @@
-module.exports = (config, request, respond) => {
+module.exports = (config, models, request, respond) => {
     respond(request.from + ': pong')
 }
