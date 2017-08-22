@@ -15,7 +15,8 @@ module.exports = {
         weather: require('./commands/weather'),
         insult: require('./commands/insult'),
         lifts: require('./commands/lifts/index'),
-        lifts_add: require('./commands/lifts/add')
+        lifts_add: require('./commands/lifts/add'),
+        lifts_remove: require('./commands/lifts/remove')
     },
     weather: {
         apiKey: ''

@@ -26,6 +26,6 @@ module.exports = (config, models, request, respond) => {
 
         respond(request.from + ': done')
     } else {
-        respond(request.from + ': syntax error, check out .help')
+        respond(request.from + ': syntax error')
     }
 }
