@@ -14,7 +14,8 @@ module.exports = {
         ping: require('./commands/ping'),
         weather: require('./commands/weather'),
         insult: require('./commands/insult'),
-        lifts: require('./commands/lifts')
+        lifts: require('./commands/lifts/index'),
+        lifts_add: require('./commands/lifts/add')
     },
     weather: {
         apiKey: ''
