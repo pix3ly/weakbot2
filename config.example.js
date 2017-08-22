@@ -13,7 +13,8 @@ module.exports = {
     commands: {
         ping: require('./commands/ping'),
         weather: require('./commands/weather'),
-        insult: require('./commands/insult')
+        insult: require('./commands/insult'),
+        lifts: require('./commands/lifts')
     },
     weather: {
         apiKey: ''
