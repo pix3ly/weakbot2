@@ -12,13 +12,21 @@ module.exports = (config, models, request, respond) => {
     }).then((lifts) => {
         let responseString = ''
 
-        lifts.forEach((lift, key, array) => {
-            responseString += lift.exercise + ' ' + lift.repetitions + 'x' + lift.weight + lift.unit
+        if (target !== request.from) {
+            responseString += target + ' | '
+        }
 
-            if (key !== array.length - 1) {
-                responseString += ' | '
-            }
-        })
+        if (lifts.length) {
+            lifts.forEach((lift, key, array) => {
+                responseString += lift.exercise + ' ' + lift.weight + lift.unit + 'x' + lift.repetitions
+
+                if (key !== array.length - 1) {
+                    responseString += ' | '
+                }
+            })
+        } else {
+            responseString += 'dissapointment'
+        }
 
         respond(request.from + ': ' + responseString)
     })
