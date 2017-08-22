@@ -17,6 +17,7 @@ const client = new irc.Client(config.client.server, config.client.user, {
 let models = []
 
 models['insult'] = require('./models/insult')(sequelize)
+models['lift'] = require('./models/lift')(sequelize)
 
 sequelize.sync()
 
