@@ -18,6 +18,7 @@ let models = []
 
 models['insult'] = require('./models/insult')(sequelize)
 models['lift'] = require('./models/lift')(sequelize)
+models['message'] = require('./models/message')(sequelize)
 
 sequelize.sync()
 
