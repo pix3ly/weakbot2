@@ -46,4 +46,20 @@ client.addListener('message', (from, to, msg) => {
             })
         }
     }
+
+    models['message'].findOne({
+        order: ['id'],
+        where: {
+            to: from,
+            sent: false
+        }
+    }).then((message) => {
+        if (message) {
+            client.say(to, message.to + ': message from ' + message.from + ' | ' + message.text)
+
+            message.sent = true
+
+            message.save()
+        }
+    })
 })
