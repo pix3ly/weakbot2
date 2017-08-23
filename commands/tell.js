@@ -1,5 +1,5 @@
 module.exports = (config, models, request, respond) => {
-    if (request.arguments.length > 2) {
+    if (request.arguments.length >= 2) {
         const to = request.arguments[0]
 
         // Don't include recipient in text
