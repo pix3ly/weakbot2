@@ -1,21 +1,24 @@
-{% include "partials/search.html" %}
+{% extends "layout.html" %}
 
-<h1>Statistics for '{{ nick }}'</h1>
-<table>
-    <thead>
-        <tr>
-            <th>Exercise</th>
-            <th>Weight</th>
-            <th>Repetitions</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for lift in lifts %}
+{% block content %}
+    {% include "partials/search.html" %}
+    <h1 class="mt-2 mb-1">Statistics for '{{ nick }}'</h1>
+    <table>
+        <thead>
             <tr>
-                <td>{{ lift.exercise }}</td>
-                <td>{{ lift.weight }} {{ lift.unit }}</td>
-                <td>{{ lift.repetitions }}</td>
+                <th>Exercise</th>
+                <th>Weight</th>
+                <th>Repetitions</th>
             </tr>
-        {% endfor %}
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            {% for lift in lifts %}
+                <tr>
+                    <td>{{ lift.exercise }}</td>
+                    <td>{{ lift.weight }} {{ lift.unit }}</td>
+                    <td>{{ lift.repetitions }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Nunito;
+}
+
+body, h1, h2, h3 {
+    font-weight: 400;
+}
+
+.wrapper {
+    margin: 64px auto;
+    width: 90%;
+    max-width: 480px;
+}
+
+.row {
+    display: flex;
+}
+
+.row .column {
+    flex: 1;
+}
+
+.row .column.column-small {
+    flex: none;
+}
+
+.row .column.column-middle {
+    align-self: center;
+}
+
+input, button {
+    font: inherit;
+    border-radius: 4px;
+}
+
+input {
+    padding: 12px;
+    width: 100%;
+    border: 1px solid #EEE;
+}
+
+button {
+    padding: 12px 36px;
+    font-size: 14px;
+    color: #FFF;
+    background: #4C84FF;
+    border: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.ml-1 {
+    margin-left: 12px;
+}
+
+.mr-1 {
+    margin-right: 12px;
+}
+
+.mt-2 {
+    margin-top: 24px;
+}
+
+.mt-1 {
+    margin-top: 12px;
+}
+
+.mb-1 {
+    margin-bottom: 12px;
+}
+
+table {
+    width: 100%;
+    text-align: left;
+}
+
+table thead tr th {
+    border-bottom: 1px solid #EEE;
+}
+
+table th, table td {
+    padding: 12px 0;
+}

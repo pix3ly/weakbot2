@@ -69,6 +69,8 @@ const nunjucks = require('nunjucks')
 
 const app = express()
 
+app.use('/', express.static('public'))
+
 nunjucks.configure('views', {
     express: app
 })
