@@ -7,8 +7,7 @@ const sequelize = new Sequelize(config.database.name, config.database.user, conf
     dialect: 'mysql',
     define: {
         timestamps: false
-    },
-    port: 33060
+    }
 })
 
 const client = new irc.Client(config.client.server, config.client.user, {
