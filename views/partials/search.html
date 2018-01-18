@@ -1,0 +1,22 @@
+<div>
+    <label>Nick</label>
+    <input type="text" id="nick" autofocus />
+    <button id="search">Search</button>
+</div>
+<script>
+    function redirect() {
+        window.location.href = '/lifts/' + document.querySelector('#nick').value;
+    }
+
+    document.querySelector('#search').addEventListener('click', function (e) {
+        e.preventDefault();
+
+        redirect();
+    });
+
+    document.querySelector('#nick').addEventListener('keypress', function (e) {
+        if (e.keyCode == 13) {
+            redirect();
+        }
+    });
+</script>

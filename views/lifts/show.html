@@ -1,0 +1,21 @@
+{% include "partials/search.html" %}
+
+<h1>Statistics for '{{ nick }}'</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Exercise</th>
+            <th>Weight</th>
+            <th>Repetitions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for lift in lifts %}
+            <tr>
+                <td>{{ lift.exercise }}</td>
+                <td>{{ lift.weight }} {{ lift.unit }}</td>
+                <td>{{ lift.repetitions }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

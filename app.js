@@ -7,7 +7,8 @@ const sequelize = new Sequelize(config.database.name, config.database.user, conf
     dialect: 'mysql',
     define: {
         timestamps: false
-    }
+    },
+    port: 33060
 })
 
 const client = new irc.Client(config.client.server, config.client.user, {
@@ -63,3 +64,32 @@ client.addListener('message', (from, to, msg) => {
         }
     })
 })
+
+const express = require('express')
+const nunjucks = require('nunjucks')
+
+const app = express()
+
+nunjucks.configure('views', {
+    express: app
+})
+
+app.get('/', (request, response) => {
+    response.render('index.html')
+})
+
+app.get('/lifts/:nick', (request, response) => {
+    const nick = request.params.nick
+
+    models['lift'].findAll({
+        where: {
+            user: nick
+        }
+    }).then((lifts) => {
+        response.render('lifts/show.html', {
+            nick, lifts
+        })
+    })
+})
+
+app.listen(3000)
